@@ -3,6 +3,7 @@ import RecipeList from "./pages/recipes";
 import CommentsList from "./pages/comments";
 import RecipeDetailsPage from "./pages/recipe-details";
 import NotFoundPage from "./pages/not-found";
+import Layout from "./component/layout";
 
 function App() {
   const navigate = useNavigate();
@@ -27,9 +28,12 @@ function App() {
         Navigate to Comments List Page
       </button>
       <Routes>
-        <Route path="/recipe-list" element={<RecipeList />} />
-        <Route path="/comments-list" element={<CommentsList />} />
-        <Route path="/recipe-list/:id" element={<RecipeDetailsPage />} />
+        <Route path="/home" element={<Layout />}>
+          <Route path="recipe-list" element={<RecipeList />} />
+          <Route path="comments-list" element={<CommentsList />} />
+          <Route path="recipe-list/:id" element={<RecipeDetailsPage />} />
+        </Route>
+
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>
     </>
