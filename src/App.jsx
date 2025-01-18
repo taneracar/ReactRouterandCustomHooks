@@ -11,18 +11,18 @@ function App() {
     <>
       <h1>React Router, custom hooks and more</h1>
       <div>
-        <Link to={"/recipe-list"}>
+        <Link to={"/home/recipe-list"}>
           Alternative way of navigating to recipe list page
         </Link>
       </div>
       <button
-        onClick={() => navigate("/recipe-list")}
+        onClick={() => navigate("/home/recipe-list")}
         style={{ background: "black", color: "white" }}
       >
         Navigate to Recipe List Page
       </button>
       <button
-        onClick={() => navigate("/comments-list")}
+        onClick={() => navigate("/home/comments-list")}
         style={{ background: "black", color: "white" }}
       >
         Navigate to Comments List Page
