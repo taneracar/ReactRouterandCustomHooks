@@ -1,41 +1,25 @@
-import React, { useMemo, useState } from "react";
-import useFetch from "../../hooks/use-fetch";
+import React, { useCallback, useState } from "react";
+import Counter from "./Counter";
 
-const UseMemoExample = () => {
-  const { data, loading } = useFetch("https://dummyjson.com/products");
-  const [flag, setFlag] = useState(false);
-
-  // Ensure hooks are always executed
-  const memorizedVersion = useMemo(
-    () => filterProductByPrice(data?.products || []),
-    [data?.products]
+const UseCallbackExample = () => {
+  const [countOne, setCountOne] = useState(0);
+  const [countTwo, setCountTwo] = useState(0);
+  const memorizedSetCountOneFunc = useCallback(
+    () => setCountOne(countOne + 1),
+    [countOne]
   );
-
-  function filterProductByPrice(getProducts) {
-    return getProducts?.length > 0
-      ? getProducts.filter((singleProductItem) => singleProductItem.price > 10)
-      : [];
-  }
+  const memorizedSetCountTwoFunc = useCallback(
+    () => setCountTwo(countTwo + 1),
+    [countTwo]
+  );
 
   return (
     <div>
-      {loading ? (
-        <h1>Loading Data! Please wait...</h1>
-      ) : !memorizedVersion.length ? (
-        <h1>No products found!</h1>
-      ) : (
-        <>
-          <h1 style={{ color: flag ? "red" : "black" }}>UseMemoExample</h1>
-          <button onClick={() => setFlag(!flag)}>Toggle Flag</button>
-          <ul>
-            {memorizedVersion.map((item) => (
-              <li key={item.id}>{item.title}</li>
-            ))}
-          </ul>
-        </>
-      )}
+      <h1>UseCallbackExample</h1>
+      <Counter countValue={countOne} onClick={memorizedSetCountOneFunc} />
+      <Counter countValue={countTwo} onClick={memorizedSetCountTwoFunc} />
     </div>
   );
 };
 
-export default UseMemoExample;
+export default UseCallbackExample;

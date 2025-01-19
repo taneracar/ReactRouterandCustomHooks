@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
-import UseMemoExample from "../use-callback-example";
+import UseMemoExample from "../use-memoo-example";
+import UseCallbackExample from "../use-callback-example";
 
 const Hooks = () => {
   const countValue = useRef(0);
@@ -31,6 +32,7 @@ const Hooks = () => {
         ref={inputRefElement}
       />
       <UseMemoExample></UseMemoExample>
+      <UseCallbackExample />
     </div>
   );
 };
