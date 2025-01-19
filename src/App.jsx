@@ -6,6 +6,7 @@ import NotFoundPage from "./pages/not-found";
 import Layout from "./component/layout";
 import ReactHookFormExamplePage from "./pages/react-hook-form-example";
 import Hooks from "./pages/hooks";
+import ReactQueryDemo from "./pages/react-query";
 
 function App() {
   const navigate = useNavigate();
@@ -37,6 +38,7 @@ function App() {
             element={<ReactHookFormExamplePage />}
           />
           <Route path="hooks" element={<Hooks />} />
+          <Route path="react-query-demo" element={<ReactQueryDemo />} />
 
           <Route path="comments-list" element={<CommentsList />} />
           <Route path="recipe-list/:id" element={<RecipeDetailsPage />} />
