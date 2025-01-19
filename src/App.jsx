@@ -5,6 +5,7 @@ import RecipeDetailsPage from "./pages/recipe-details";
 import NotFoundPage from "./pages/not-found";
 import Layout from "./component/layout";
 import ReactHookFormExamplePage from "./pages/react-hook-form-example";
+import Hooks from "./pages/hooks";
 
 function App() {
   const navigate = useNavigate();
@@ -35,6 +36,7 @@ function App() {
             path="react-hook-form"
             element={<ReactHookFormExamplePage />}
           />
+          <Route path="hooks" element={<Hooks />} />
 
           <Route path="comments-list" element={<CommentsList />} />
           <Route path="recipe-list/:id" element={<RecipeDetailsPage />} />
